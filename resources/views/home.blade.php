@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    
+                    <img src="{{asset(Auth::user()->avatar)}}" >
                 </div>
             </div>
         </div>
