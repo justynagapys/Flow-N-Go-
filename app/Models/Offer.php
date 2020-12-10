@@ -12,9 +12,9 @@ class Offer extends Model
 
     
 
-    /*public function author(){
+    public function user(){
         return $this->belongsTo(User::class);
-    }*/
+    }
 
     
 }
