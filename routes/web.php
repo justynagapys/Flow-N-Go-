@@ -22,3 +22,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/offertest', [App\Http\Controllers\OfferController::class, 'index']);
+
+Route::get('/offer/create', [App\Http\Controllers\OfferController::class, 'create']);
+
+Route::post('offer/create', [App\Http\Controllers\OfferController::class, 'store']);
