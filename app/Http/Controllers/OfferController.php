@@ -25,6 +25,12 @@ class OfferController extends Controller
     }
 
     public function store(Request $request){
+
+        $validated = $request->validateWithBag([
+            'name' => ['required', 'unique', 'max:255'],
+            'description' => ['reqired']
+        ]);
+
         $offer = new Offer;
         $offer->name = $request->input('name');
         $offer->user_id = auth()->user()->id;
