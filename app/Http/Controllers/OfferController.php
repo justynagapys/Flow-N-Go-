@@ -26,10 +26,10 @@ class OfferController extends Controller
 
     public function store(Request $request){
 
-       /* $validated = $request->validate([
-            'name' => ['required', 'unique', 'max:255'],
-            'description' => ['reqired']
-        ]);*/
+       $validated = $request->validate([
+            'name' => ['required', 'max:255'],
+            'description' => ['required']
+        ]);
 
         $offer = new Offer;
         $offer->name = $request->input('name');
@@ -44,13 +44,18 @@ class OfferController extends Controller
     }
 
     public function update(Request $request, $id){
-        $offer = Offer::find($id);
-        $offer->name = $request->input('name');
-        $offer->description = $request->input('description');
-        $offer->save();
-        return redirect()->back();
-    }
-    public function delete(){
+        $validated = $request->validate([
+            'name' => ['required', 'max:255'],
+            'description' => ['required']
+        ]);
 
+        $offer = Offer::find($id);
+        $offer->update($request->all());
+        return $offer;
+    }
+    public function destroy($id){
+        $offer = Offer::find($id);
+        $offer->delete();
+        return 'succes';
     }
 }
