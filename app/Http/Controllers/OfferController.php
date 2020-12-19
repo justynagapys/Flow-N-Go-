@@ -20,6 +20,12 @@ class OfferController extends Controller
         return view('offer.detail')->with('offer', $offer);
     }
 
+  /*  public function userOffers(){
+        $user_id = auth()->user()->id;
+        $offers = Offer::
+        return view('offer.index')->with('offers', $offers);
+    }*/
+
     public function create(){
         return view('offer.create');
     }
@@ -36,6 +42,7 @@ class OfferController extends Controller
         $offer->user_id = auth()->user()->id;
         $offer->description = $request->input('description');
         $offer->save();
+        return redirect('/offer/'.$offer->id);
         
     }
     public function edit($id){
@@ -57,7 +64,7 @@ class OfferController extends Controller
         $offer = Offer::find($id);
         if($offer->user_id == auth()->user()->id){
         $offer->update($request->all());
-        return $offer;
+        return redirect('/offer/'.$offer->id);
         }
         else{
             return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
@@ -67,7 +74,7 @@ class OfferController extends Controller
         $offer = Offer::find($id);
         if($offer->user_id == auth()->user()->id){
         $offer->delete();
-        return 'succes';
+        return redirect('/');
         }
         else{
             return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');

@@ -19,7 +19,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/offer/my', [App\Http\Controllers\OfferController::class, 'userOffers']);
+
 Route::get('/', [App\Http\Controllers\OfferController::class, 'index']);
+
+Route::get('/offer/{id}', [App\Http\Controllers\OfferController::class, 'show']);
 
 Route::get('/offer/create', [App\Http\Controllers\OfferController::class, 'create']);
 
