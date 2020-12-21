@@ -3,7 +3,14 @@
 @section ('title', 'Crete offer') {{-- tytuł naszej sekcji --}}
 
 @section('content')
-<div>
-    Tutaj będzie lista ofert
-</div>
+    <form method="POST">
+        @csrf
+        Name:
+        <input type="text" name="name">
+        Description:
+        <input type="text" name="description">
+        <input type="submit" value="Create!">
+    </form>
 @endsection
+
+
