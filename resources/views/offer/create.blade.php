@@ -1,9 +1,9 @@
-@extends('layout.app')
+@extends('layouts.master') {{-- używa naszego master layoutu --}}
+
+@section ('title', 'Crete offer') {{-- tytuł naszej sekcji --}}
+
 @section('content')
-    <form method="POST">
-        @csrf
-        <input type="text" name="name">
-        <input type="text" name="description">
-        <input type="submit" value="create!">
-    </form>
+<div>
+    Tutaj będzie lista ofert
+</div>
 @endsection
