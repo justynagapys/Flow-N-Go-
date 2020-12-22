@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Offer;
+
 use Illuminate\Http\Request;
+
+use App\Models\Offer;
 
 class OfferController extends Controller
 {
@@ -10,29 +12,37 @@ class OfferController extends Controller
     {
         $this->middleware('auth')->except('index','show');
     }
-    public function index(){
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         $offers = Offer::all();
         return view('offer.index')->with('offers', $offers);
     }
 
-    public function show($id){
-        $offer = Offer::find($id);
-        return view('offer.detail')->with('offer', $offer);
-    }
-
-  /*  public function userOffers(){
-        $user_id = auth()->user()->id;
-        $offers = Offer::
-        return view('offer.index')->with('offers', $offers);
-    }*/
-
-    public function create(){
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         return view('offer.create');
     }
 
-    public function store(Request $request){
-
-       $validated = $request->validate([
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
             'name' => ['required', 'max:255'],
             'description' => ['required']
         ]);
@@ -43,9 +53,30 @@ class OfferController extends Controller
         $offer->description = $request->input('description');
         $offer->save();
         return redirect('/offer/'.$offer->id);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        
+        $offer = Offer::find($id);
+        return view('offer.detail')->with('offer', $offer);
         
     }
-    public function edit($id){
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
         $offer = Offer::find($id);
         if($offer->user_id == auth()->user()->id){
             return view('offer.edit')->with('offer', $offer);
@@ -53,10 +84,17 @@ class OfferController extends Controller
         else{
             return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
         }
-        
     }
 
-    public function update(Request $request, $id){
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
         $validated = $request->validate([
             'name' => ['required', 'max:255'],
             'description' => ['required']
@@ -70,7 +108,15 @@ class OfferController extends Controller
             return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
         }
     }
-    public function destroy($id){
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
         $offer = Offer::find($id);
         if($offer->user_id == auth()->user()->id){
         $offer->delete();
@@ -78,6 +124,6 @@ class OfferController extends Controller
         }
         else{
             return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
-        }
+            }
     }
 }

@@ -19,18 +19,22 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/offer/my', [App\Http\Controllers\OfferController::class, 'userOffers']);
+
 
 Route::get('/', [App\Http\Controllers\OfferController::class, 'index']);
 
-Route::get('/offer/{id}', [App\Http\Controllers\OfferController::class, 'show']);
+Route::get('/offers/{id}', [App\Http\Controllers\OfferController::class, 'show']);
 
-Route::get('/offer/create', [App\Http\Controllers\OfferController::class, 'create']);
+Route::get('offes/create', [App\Http\Controllers\OfferController::class, 'create']);
 
-Route::post('offer/create', [App\Http\Controllers\OfferController::class, 'store']);
+Route::post('offers/create', [App\Http\Controllers\OfferController::class, 'store']);
 
-Route::get('/offer/{id}/edit', [App\Http\Controllers\OfferController::class, 'edit']);
+Route::get('/offers/{id}/edit', [App\Http\Controllers\OfferController::class, 'edit']);
 
-Route::patch('/offer/{id}/edit', [App\Http\Controllers\OfferController::class, 'update']);
+Route::patch('/offers/{id}/edit', [App\Http\Controllers\OfferController::class, 'update']);
 
-Route::get('/offer/{id}/delete', [App\Http\Controllers\OfferController::class, 'destroy']);
+Route::get('/offers/{id}/delete', [App\Http\Controllers\OfferController::class, 'destroy']);
+
+
+
+
