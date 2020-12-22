@@ -34,3 +34,9 @@ Route::get('/offer/{id}/edit', [App\Http\Controllers\OfferController::class, 'ed
 Route::patch('/offer/{id}/edit', [App\Http\Controllers\OfferController::class, 'update']);
 
 Route::get('/offer/{id}/delete', [App\Http\Controllers\OfferController::class, 'destroy']);
+
+Route::get('/offer/{o_id}/comments', [App\Http\Controllers\CommentController::class, 'index']);
+
+Route::get('/offer/{o_id}/comments/create', [App\Http\Controllers\CommentController::class, 'create']);
+
+Route::post('/offer/{o_id}/comments/create', [App\Http\Controllers\CommentController::class, 'store']);
