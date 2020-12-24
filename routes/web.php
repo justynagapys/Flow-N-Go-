@@ -19,15 +19,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
 Route::get('/', [App\Http\Controllers\OfferController::class, 'index']);
-
-Route::get('/offers/{id}', [App\Http\Controllers\OfferController::class, 'show']);
 
 Route::get('offes/create', [App\Http\Controllers\OfferController::class, 'create']);
 
 Route::post('offers/create', [App\Http\Controllers\OfferController::class, 'store']);
+
+Route::get('/offers/{id}', [App\Http\Controllers\OfferController::class, 'show']);
 
 Route::get('/offers/{id}/edit', [App\Http\Controllers\OfferController::class, 'edit']);
 
