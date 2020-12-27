@@ -21,9 +21,9 @@ Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->nam
 
 Route::get('/', [\App\Http\Controllers\OfferController::class, 'index']);
 
-Route::get('offers/create', [\App\Http\Controllers\OfferController::class, 'create']);
+Route::get('/offers/create', [\App\Http\Controllers\OfferController::class, 'create']);
 
-Route::post('offers/create', [\App\Http\Controllers\OfferController::class, 'store']);
+Route::post('/offers/create', [\App\Http\Controllers\OfferController::class, 'store']);
 
 Route::get('/offers/{id}', [\App\Http\Controllers\OfferController::class, 'show']);
 
@@ -33,6 +33,8 @@ Route::patch('/offers/{id}/edit', [\App\Http\Controllers\OfferController::class,
 
 Route::get('/offers/{id}/delete', [\App\Http\Controllers\OfferController::class, 'destroy']);
 
+Route::get('/offers/{id}/comments', [\App\Http\Controllers\OfferController::class, 'comments']);
 
+Route::get('/offers/{o_id}/comments/create', [\App\Http\Controllers\CommentController::class, 'create']);
 
-
+Route::post('/offers/{o_id}/comments/create', [\App\Http\Controllers\CommentController::class, 'store']);
