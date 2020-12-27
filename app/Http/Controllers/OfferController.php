@@ -8,7 +8,7 @@ class OfferController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index','show');
+        $this->middleware('auth')->except('index','show','comments');
     }
     public function index(){
         $offers = Offer::all();
@@ -79,5 +79,9 @@ class OfferController extends Controller
         else{
             return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
         }
+    }
+    public function comments($id){
+        $comments = Offer::find($id)->comments;
+        return view('comment.list')->with('comments', $comments);
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Comment;
 
+use App\Models\Offer;
+
 class CommentController extends Controller
 {
     /**
@@ -16,14 +18,9 @@ class CommentController extends Controller
 
      public function __construct()
      {
-         $this->middleware('auth')->except('index');
+         $this->middleware('auth');
      }
-    public function index($o_id)
-    {
-        $comments = Comment::where('offer_id', $o_id);
-        return  $comments; 
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -42,11 +39,15 @@ class CommentController extends Controller
      */
     public function store(Request $request, $o_id)
     {
+        $validated = $request->validate([
+            'message'=>['required']
+        ]);
         $comment = New Comment;
         $comment->message = $request->input('message');
         $comment->user_id = auth()->user()->id;
         $comment->offer_id = $o_id;
-
+        $comment->save();
+        return redirect('offers/'.$comment->offer_id.'/comments');
     }
 
     
@@ -58,7 +59,13 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::find($id);
+        if($comment->user_id == auth()->user()->id){
+            return view('comment.edit');
+        }
+        else{
+            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+        }
     }
 
     /**
@@ -70,7 +77,17 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'message'=>['required']
+        ]);
+        $comment = Comment::find($id);
+        if($comment->user_id == auth()->user()->id){
+            $comment->update($request->all());
+            return redirect('offers/'.$comment->offer_id.'/comments');
+        }
+        else{
+            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+        }
     }
 
     /**
@@ -81,6 +98,13 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+        if($comment->user_id == auth()->user()->id){
+            $comment->delete();
+            return redirect('offers/'.$comment->offer_id.'/comments');
+        }
+        else{
+            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+        }
     }
 }
