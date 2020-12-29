@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form method="POST" class="form-horizontal" role="form">
+<form method="POST" class="form-horizontal" role="form" encrypte="multipart/form-data">
 @csrf
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">Name</label>
