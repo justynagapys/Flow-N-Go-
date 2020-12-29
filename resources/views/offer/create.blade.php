@@ -23,7 +23,7 @@
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">Price</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="price" placeholder="Enter the offer price">
+      <input type="number" class="form-control" id="price" placeholder="Enter the offer price">
     </div>
   </div>
 
@@ -38,7 +38,8 @@
     <label for="addphoto" class="col-sm-2 control-label" >Add place photos</label>
 
     <div class="col-sm-10">
-    <input type="file" class="form-control-file" id="addphoto" data-show-upload="false" data-show-caption="true" multiple>
+    <input type="file" class="form-control-file" id="images" data-show-upload="false" data-show-caption="true" multiple>
+
     </div>
   </div>
 

@@ -11,7 +11,10 @@ class Offer extends Model
     
     protected $fillable = [
         'name',
-        'description'
+        'localization',
+        'price',
+        'description',
+        'images',
     ];
     
 
@@ -22,6 +25,4 @@ class Offer extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
-
-    
 }
