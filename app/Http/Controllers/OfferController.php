@@ -44,13 +44,18 @@ class OfferController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'max:255'],
-            'description' => ['required']
+            'description' => ['required'],
+            'localization' => ['required', 'max:50'],
+        
         ]);
 
         $offer = new Offer;
         $offer->name = $request->input('name');
         $offer->user_id = auth()->user()->id;
         $offer->description = $request->input('description');
+        $offer->localization = $request->input('localization');
+        $offer-> price = $request->input('price');
+        $offer->images = $request->input('images');
         $offer->save();
         return redirect('/offer/'.$offer->id);
     }
