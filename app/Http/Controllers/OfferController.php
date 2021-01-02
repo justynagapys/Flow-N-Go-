@@ -54,10 +54,10 @@ class OfferController extends Controller
         $offer->user_id = auth()->user()->id;
         $offer->description = $request->input('description');
         $offer->localization = $request->input('localization');
-        $offer-> price = $request->input('price');
-        $offer->images = $request->input('images');
+        $offer->price = $request->input('price');
+        // $offer->images = $request->input('images');
         $offer->save();
-        return redirect('/offer/'.$offer->id);
+        return redirect('/'.$offer->id); ///!!!???!!!
     }
 
     /**
@@ -107,7 +107,7 @@ class OfferController extends Controller
         $offer = Offer::find($id);
         if($offer->user_id == auth()->user()->id){
         $offer->update($request->all());
-        return redirect('/offer/'.$offer->id);
+        return redirect('/'.$offer->id);
         }
         else{
             return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');

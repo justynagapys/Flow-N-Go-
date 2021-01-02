@@ -34,13 +34,13 @@
     </div>
   </div>
   
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="addphoto" class="col-sm-2 control-label" >Add place photos</label>
 
     <div class="col-sm-10">
     <input type="file" class="form-control-file" id="images" data-show-upload="false" data-show-caption="true" multiple>
 
-    </div>
+    </div> -->
   </div>
 
   <div class="form-group">
