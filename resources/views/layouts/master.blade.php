@@ -5,34 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="master.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Modify the background color */
-        /* czcionka do ustawienia */
-        .navbar-custom {
-            width: 100%;
-            background-color: #F3F9FD;
-        }
-        .navbar-custom .navbar-brand,
-        .navbar-custom .navbar-text {
-            color: #051923;
-        }
-        a {
-            color: #051923;
-        }
-        body {
-            color: #051923;
-        }
-        .navbar-toggle {
-            /* (80px - button height 34px) / 2 = 23px */
-            margin-top: 23px;
-            padding: 9px 10px !important;
-        }
-    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>@yield('title')</title>
+    <style>
+    .navbar-custom {
+    width: 100%;
+    background-color: #F3F9FD;
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: #051923;
+    }
+    a {
+        color: #051923;
+    }
+    body {
+        color: #051923;
+    }
+    .navbar-toggle {
+        /* (80px - button height 34px) / 2 = 23px */
+        margin-top: 23px;
+        padding: 9px 10px !important;
+    }
+    tr{
+        border: 3px solid;
+        border-color: #003554;
+    }
+    table{
+        border-collapse: separate;
+        border-spacing:100px 30px;
+    }
+    .buttonCreate{
+        background-color: #003554;
+    }
+    body,th{
+        color:  #003554;
+    }
+    .card-header{
+        background-color: #F3F9FD;
+    }
+    </style>
 </head>
 <body>
 <ul class="navbar nabvar-custom mr-auto">

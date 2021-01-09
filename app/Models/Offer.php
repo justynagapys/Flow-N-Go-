@@ -14,7 +14,7 @@ class Offer extends Model
         'localization',
         'price',
         'description',
-        // 'images',
+        'images',
     ];
     
 

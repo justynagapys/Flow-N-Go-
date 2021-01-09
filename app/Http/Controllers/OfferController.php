@@ -46,6 +46,7 @@ class OfferController extends Controller
             'name' => ['required', 'max:255'],
             'description' => ['required'],
             'localization' => ['required', 'max:50'],
+            'images'=>['required']
         
         ]);
 
@@ -55,9 +56,9 @@ class OfferController extends Controller
         $offer->description = $request->input('description');
         $offer->localization = $request->input('localization');
         $offer->price = $request->input('price');
-        // $offer->images = $request->input('images');
+        $offer->images = $request->input('images');
         $offer->save();
-        return redirect('/'.$offer->id); ///!!!???!!!
+        return redirect('/'); ///!!!???!!!
     }
 
     /**
