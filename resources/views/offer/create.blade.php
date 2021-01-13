@@ -3,7 +3,7 @@
 @section ('title', 'Crete offer')
  @section('content')  
 
-<form method="POST" class="form-horizontal" role="form" encrypte="multipart/form-data" > 
+<form method="POST" class="form-horizontal" role="form" enctype="multipart/form-data" > 
  @csrf
   <div class="form-group">
     <label for="text" class="col-sm-2 control-label">Name</label>
@@ -37,7 +37,7 @@
     <label for="addphoto" class="col-sm-2 control-label" >Add place photos</label>
 
     <div class="col-sm-10">
-    <input type="file" class="form-control-file" name="images" data-show-upload="false" data-show-caption="true" multiple>
+    <input type="file" class="form-control-file" name="images[]" data-show-upload="false" data-show-caption="true" multiple="">
 
     </div>
   </div> 
