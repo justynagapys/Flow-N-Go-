@@ -32,9 +32,18 @@
       <input type="text" class="form-control" name="description" placeholder="Enter the offer description">
     </div>
   </div>
+
+  <div class="form-group">
+    <label for="addphoto" class="col-sm-3 control-label" >Add cover photo of the place</label>
+
+    <div class="col-sm-10">
+    <input type="file" class="form-control-file" name="coverImage" data-show-upload="false" data-show-caption="true">
+
+    </div>
+  </div> 
   
   <div class="form-group">
-    <label for="addphoto" class="col-sm-2 control-label" >Add place photos</label>
+    <label for="addphoto" class="col-sm-3 control-label" >Add another place photos</label>
 
     <div class="col-sm-10">
     <input type="file" class="form-control-file" name="images[]" data-show-upload="false" data-show-caption="true" multiple="">

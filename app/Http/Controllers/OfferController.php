@@ -58,33 +58,18 @@ class OfferController extends Controller
         $offer->price = $request->input('price');
         $offer->images = $request->input('images');
         $image = $request->file('images');
-        if($request->hasfile('images')){
             foreach($request->file('images') as $image){
             $name=$image->getClientOriginalName();
-            $image->move(public_path().'/uploadImages/',$name);
-            $offer->$image = '/uploadImages/'.$name;
-            }
-            
-        }
-        
-        // if(isset($_POST['submit'])){
-        //     foreach($_FILES['images']['name'] as $key=> $val){
-        //         move_uploaded_file($_FILES['images']['tmp_name'][$key],"uploadImages/".$val);
-        //         $offer->images = '/uploadImages/'.$val;
-        //         //nie działa dodawanie kilku zdjęć na raz
-        //     }
-        // }
-        // $countImages = count($_FILES['images']['name']);
-        // for ($i=0; $i<$countImages; $i++){
-        //     $imageName = $_FILES['images']['name'][$i];
-        //     move_uploaded_file($_FILES['images']['tmp_name'][$i],'uploadImages/'.$imageName);
-        // }
-        // for ($i=0; $i<=length($image); $i++){
-        //     $imageName = time().'.'.$image->getClientOriginalExtension();
-        //     $imagePath = public_path('/uploadImages/');
-        //     $image->move($imagePath, $imageName);
-        
-        // }
+            $imagePath = public_path('uploadImages/');
+            $image->move($imagePath,$name); 
+
+            $offer->images = $offer->images ." ". 'uploadImages/'.$name;}
+        $coverImage=$request->file('coverImage');
+        $coverName=$coverImage->getClientOriginalName();
+        $coverPath = public_path('uploadImages/');
+        $coverImage->move($coverPath,$coverName); 
+
+        $offer->coverImage ='uploadImages/'.$coverName;
         
 
         $offer->save();

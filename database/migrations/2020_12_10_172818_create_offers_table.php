@@ -21,6 +21,7 @@ class CreateOffersTable extends Migration
             $table->double('price');
             $table->string('localization');
             $table->longText('description');
+            $table ->string('coverImage');
             $table->string('images');
 
             
