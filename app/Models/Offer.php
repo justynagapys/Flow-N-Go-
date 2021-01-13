@@ -23,5 +23,7 @@ class Offer extends Model
         return $this->hasMany(Comment::class);
     }
 
-    
+    public function photo(){
+        return $this->hasMany(Photo::class);
+    }
 }
