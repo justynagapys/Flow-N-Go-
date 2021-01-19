@@ -21,7 +21,7 @@
         color: #051923;
     }
     a {
-        color: #051923;
+        color: #051923;'
     }
     body {
         color: #051923;
@@ -55,8 +55,8 @@
 <ul class="navbar nabvar-custom mr-auto">
     <nav class="navbar navbar-custom navbar-expand-lg">
     <a class="navbar-brand" href="/">
-          <img src="https://scontent-waw1-1.xx.fbcdn.net/v/t1.15752-9/131442571_449269133136908_1565580654704638868_n.png?_nc_cat=100&ccb=2&_nc_sid=ae9488&_nc_ohc=iB7n5MkcF9QAX8gzFDw&_nc_ht=scontent-waw1-1.xx&oh=603c11cfeaa0e611f446f837263a29c2&oe=60057D3B" alt="">
-        </a>
+          <img src=logoFlowAndGo.png alt="logo">
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

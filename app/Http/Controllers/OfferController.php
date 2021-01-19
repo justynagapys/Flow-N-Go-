@@ -73,7 +73,7 @@ class OfferController extends Controller
         
 
         $offer->save();
-        return redirect('/'); ///!!!???!!!
+        return redirect('/');
     }
 
     /**
@@ -83,9 +83,7 @@ class OfferController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        
-        $offer = Offer::find($id);
+    {   $offer = Offer::find($id);
         return view('offer.detail')->with('offer', $offer);
         
     }
