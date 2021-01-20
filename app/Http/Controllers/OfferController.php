@@ -63,13 +63,14 @@ class OfferController extends Controller
             $imagePath = public_path('uploadImages/');
             $image->move($imagePath,$name); 
 
-            $offer->images = $offer->images ." ". 'uploadImages/'.$name;}
+            $offer->images = $offer->images ." ". '/uploadImages/'.$name;}
         $coverImage=$request->file('coverImage');
-        $coverName=$coverImage->getClientOriginalName();
-        $coverPath = public_path('uploadImages/');
+        $coverName=time().'.'.$coverImage->getClientOriginalExtension();
+        $coverPath = public_path('/uploadImages');
         $coverImage->move($coverPath,$coverName); 
 
-        $offer->coverImage ='uploadImages/'.$coverName;
+        $offer->coverImage ='/uploadImages/'.$coverName;
+        
         
 
         $offer->save();

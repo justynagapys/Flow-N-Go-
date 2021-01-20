@@ -13,8 +13,8 @@
     <title>@yield('title')</title>
     <style>
     .navbar-custom {
-    width: 100%;
-    background-color: #F3F9FD;
+        width: 100%;
+        background-color: #F3F9FD;
     }
     .navbar-custom .navbar-brand,
     .navbar-custom .navbar-text {
@@ -27,7 +27,6 @@
         color: #051923;
     }
     .navbar-toggle {
-        /* (80px - button height 34px) / 2 = 23px */
         margin-top: 23px;
         padding: 9px 10px !important;
     }
@@ -55,7 +54,7 @@
 <ul class="navbar nabvar-custom mr-auto">
     <nav class="navbar navbar-custom navbar-expand-lg">
     <a class="navbar-brand" href="/">
-          <img src=logoFlowAndGo.png alt="logo">
+          <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/131442571_449269133136908_1565580654704638868_n.png?_nc_cat=100&ccb=2&_nc_sid=58c789&_nc_ohc=VaPy1UU1chkAX9psa0-&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=dbf87fd459474964166de184d66e3261&oe=602D0A3B" width="160" height="40" alt="logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

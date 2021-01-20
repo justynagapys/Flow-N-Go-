@@ -16,16 +16,15 @@
                     @endif
                     <table>
                         <th>Picture</th><th>Name</th><th>Localization</th><th>Price</th><th></th>
-                        @foreach($offers as $offers){{
-                                print "<tr><td>".'<img src='.$offers["coverImage"] .' width="110" height="70">'."</td>
-                                    <td>".$offers["name"]."</td>
-                                    <td>".$offers["localization"]."</td>
-                                    <td>".$offers["price"]."</td>
-                                    <td><input type='submit' class='btn btn-dark buttonCreate' value='Details' action=''></td></tr>"
-                                }}
+                        @foreach($offers as $offers)
+                            <tr><td><img src={{$offers["coverImage"]}} width="110" height="70"></td>
+                            <td>{{$offers["name"]}}</td>
+                            <td>{{$offers["localization"]}}</td>
+                            <td>{{$offers["price"]}} $</td>
+                            <td><a href="/offers/{{$offers["id"]}}" class="btn btn-dark buttonCreate">Details</a></td>
+                            </tr>
                         @endforeach
-                        </table>
-                </div>
+                    </table>
             </div>
         </div>
     </div>

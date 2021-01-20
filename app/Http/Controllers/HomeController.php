@@ -23,8 +23,9 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {    
-        $offers = Offer::all();
-        return view('home')->with('offers', $offers);
+    {   $offer = Offer::all();
+        if($offer->user_id == auth()->user()->id){
+            return view('home')->with('offer', $offer);
+        }
     }
 }
