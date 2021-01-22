@@ -32,7 +32,8 @@
     }
     table{
         border-collapse: separate;
-        border-spacing:70px 30px;
+        border-spacing: 0px 40px;
+        align: center;
     }
     .buttonCreate{
         background-color: #003554;
@@ -47,6 +48,20 @@
         background-color: #F3F9FD;
         font-weight: bold;
         font-size: 20px;
+    }
+    .control-label{
+        font-weight: bold;
+    }
+    .offersTable{
+        width:200px;
+    }
+    .offersTableSmall{
+        width:140px;
+    }
+    .btnMang{
+        width: 100px;
+        padding: 2px;
+        margin: 3px;
     }
     </style>
 </head>

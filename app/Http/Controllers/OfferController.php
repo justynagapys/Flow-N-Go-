@@ -122,6 +122,7 @@ class OfferController extends Controller
         $offer = Offer::find($id);
         if($offer->user_id == auth()->user()->id){
         $offer->update($request->all());
+        $offer->save();
         return redirect('/'.$offer->id);
         }
         else{

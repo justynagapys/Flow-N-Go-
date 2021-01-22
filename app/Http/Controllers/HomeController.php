@@ -23,9 +23,14 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {   $offer = Offer::all();
-        if($offer->user_id == auth()->user()->id){
-            return view('home')->with('offer', $offer);
-        }
+    {   
+        $offer = Offer::whereHas('user', function($innerQuery) {
+            $innerQuery->where('user_id', 'LIKE', auth()->user()->id);
+        })->get();
+
+        return view('home')->with('offer', $offer);
+    
     }
 }
+
+
