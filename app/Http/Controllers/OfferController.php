@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Offer;
+use App\Models\User;
 
 class OfferController extends Controller
 {
@@ -85,7 +85,8 @@ class OfferController extends Controller
      */
     public function show($id)
     {   $offer = Offer::find($id);
-        return view('offer.detail')->with('offer', $offer);
+        $user = User::where('id', '=', $offer['user_id'])->get();
+        return view('offer.detail')->with('offer', $offer)-> with('user', $user);
         
     }
 

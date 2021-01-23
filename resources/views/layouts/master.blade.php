@@ -63,6 +63,11 @@
         padding: 2px;
         margin: 3px;
     }
+    .avatarImageOffer{
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
     </style>
 </head>
 <body>
