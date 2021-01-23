@@ -38,3 +38,5 @@ Route::get('/offers/{id}/comments', [\App\Http\Controllers\OfferController::clas
 Route::get('/offers/{o_id}/comments/create', [\App\Http\Controllers\CommentController::class, 'create']);
 
 Route::post('/offers/{o_id}/comments/create', [\App\Http\Controllers\CommentController::class, 'store']);
+
+Route::get('/home/myoffers', [\App\Http\Controllers\HomeController::class, 'userOffers']);
