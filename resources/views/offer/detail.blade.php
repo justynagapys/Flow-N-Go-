@@ -36,7 +36,6 @@
                         <table style="float: left; width: 70%">
                             <tr><td style="text-align:left"><h4>{{$offer["name"]}}</h4></td></tr>
                             <tr><td style="text-align:left"><strong>Localization: </strong>{{$offer["localization"]}}</td></tr>
-                            <tr><td style="text-align:left"><strong>Price: </strong>{{$offer["price"]}} $</td></tr>
                             <tr><td style="text-align:left"><strong>Description: </strong></td></tr>
                             <tr><td style="text-align:left">{{$offer["description"]}}</td></tr> 
                         </table>

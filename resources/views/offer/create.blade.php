@@ -25,13 +25,6 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <label for="text" class="col-sm-7 control-label">Price per day</label>
-    <div class="col-sm-12">
-      <input type="number" class="form-control" name="price" placeholder="Enter the offer price">
-    </div>
-  </div>
-
   <div class="form-group"> 
     <label for="text" class="col-sm-7 control-label">Description</label>
     <div class="col-sm-12">
