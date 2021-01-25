@@ -18,7 +18,6 @@ class CreateOffersTable extends Migration
             $table->integer('user_id');
             $table->timestamps();
             $table->string('name');
-            $table->double('price');
             $table->string('localization');
             $table->longText('description');
             $table ->string('coverImage');

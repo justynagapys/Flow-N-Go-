@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->timestamps();
             $table->integer('user_id');
             $table->integer('offer_id');
+            $table->string('name');
             $table->longText('message');
         });
     }

@@ -16,7 +16,7 @@
                     @endif
                     <table>
                         <th>Picture</th><th>Name</th><th>Localization</th><th>Manage</th>
-                        @foreach($offer as $offers)
+                        @foreach($offers as $offers)
                             <tr><td  class="offersTable"><img src={{$offers["coverImage"]}} width="165" height="105"></td> 
                             <td  class="offersTable">{{$offers["name"]}}</td>
                             <td  class="offersTable">{{$offers["localization"]}}</td>
