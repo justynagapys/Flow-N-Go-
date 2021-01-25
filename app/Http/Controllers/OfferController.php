@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Offer;
+use App\Models\User;
 
 class OfferController extends Controller
 {
@@ -44,13 +44,34 @@ class OfferController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'max:255'],
-            'description' => ['required']
+            'description' => ['required'],
+            'localization' => ['required', 'max:50'],
+            'images'=>['required']
+        
         ]);
 
         $offer = new Offer;
         $offer->name = $request->input('name');
         $offer->user_id = auth()->user()->id;
         $offer->description = $request->input('description');
+        $offer->localization = $request->input('localization');
+        $offer->images = $request->input('images');
+        $image = $request->file('images');
+            foreach($request->file('images') as $image){
+            $name=$image->getClientOriginalName();
+            $imagePath = public_path('uploadImages/');
+            $image->move($imagePath,$name); 
+
+            $offer->images = $offer->images ." ". '/uploadImages/'.$name;}
+        $coverImage=$request->file('coverImage');
+        $coverName=time().'.'.$coverImage->getClientOriginalExtension();
+        $coverPath = public_path('/uploadImages');
+        $coverImage->move($coverPath,$coverName); 
+
+        $offer->coverImage ='/uploadImages/'.$coverName;
+        
+        
+
         $offer->save();
         return redirect('/offers/'.$offer->id);
     }
@@ -62,10 +83,9 @@ class OfferController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        
-        $offer = Offer::find($id);
-        return view('offer.detail')->with('offer', $offer);
+    {   $offer = Offer::find($id);
+        $user = User::where('id', '=', $offer['user_id'])->get();
+        return view('offer.detail')->with('offer', $offer)-> with('user', $user);
         
     }
 

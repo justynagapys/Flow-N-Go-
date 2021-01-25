@@ -11,7 +11,10 @@ class Offer extends Model
     
     protected $fillable = [
         'name',
-        'description'
+        'localization',
+        'description',
+        'coverImage',
+        'images',
     ];
     
 
