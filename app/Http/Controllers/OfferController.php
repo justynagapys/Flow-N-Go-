@@ -128,6 +128,6 @@ class OfferController extends Controller
     }
     public function comments($id){
         $comments = Offer::find($id)->comments;
-        return view('comment.list')->with('comments', $comments);
+        return $comments;
     }
 }
