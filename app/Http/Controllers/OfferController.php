@@ -84,9 +84,13 @@ class OfferController extends Controller
      */
     public function show($id)
     {   $offer = Offer::find($id);
+        if($offer==null){
+            return view('errors.idNullError');
+        }
+        else{
         $user = User::where('id', '=', $offer['user_id'])->get();
         $comments = $offer -> comments();
-        return view('offer.detail')->with('offer', $offer)-> with('user', $user) -> with ('comments', $comments);
+        return view('offer.detail')->with('offer', $offer)-> with('user', $user) -> with ('comments', $comments);}
         
     }
 
@@ -103,7 +107,7 @@ class OfferController extends Controller
             return view('offer.edit')->with('offer', $offer);
         }
         else{
-            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+            return view('errors.permissionError');
         }
     }
 
@@ -126,7 +130,7 @@ class OfferController extends Controller
         return redirect('/offers/'.$offer->id);
         }
         else{
-            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+            return view('errors.permissionError');
         }
     }
 
@@ -144,7 +148,7 @@ class OfferController extends Controller
         return redirect('/');
         }
         else{
-            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+            return view('errors.permissionError');
             }
     }
     public function comments($id){

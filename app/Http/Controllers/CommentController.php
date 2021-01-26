@@ -66,7 +66,7 @@ class CommentController extends Controller
             return view('comment.edit');
         }
         else{
-            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+            return view('errors.permissionError');
         }
     }
 
@@ -88,7 +88,7 @@ class CommentController extends Controller
             return redirect('offers/'.$comment->offer_id.'/comments');
         }
         else{
-            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+            return view('errors.permissionError');
         }
     }
 
@@ -106,7 +106,7 @@ class CommentController extends Controller
             return redirect('offers/'.$comment->offer_id.'/comments');
         }
         else{
-            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+            return view('errors.permissionError');
         }
     }
 }

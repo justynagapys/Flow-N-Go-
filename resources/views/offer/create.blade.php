@@ -1,6 +1,6 @@
 @extends('layouts.master') 
 
-@section ('title', 'Crete offer')
+@section ('title', 'Create offer')
  @section('content')
  <div class="container">
   <div class="row justify-content-center">
@@ -61,17 +61,3 @@
 </div>
 </div>
 @endsection
-
-{{-- @extends('layouts.master') 
-@section ('title', 'Crete offer') 
-@section('content')
-    <form method="POST">
-        @csrf
-        Name:
-        <input type="text" name="name">
-        Description:
-        <input type="text" name="description">
-        <input type="submit" value="Create!">
-    </form>
-@endsection  --}}
-
