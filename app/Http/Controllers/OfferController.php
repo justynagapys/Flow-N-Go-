@@ -148,7 +148,8 @@ class OfferController extends Controller
             }
     }
     public function comments($id){
+        $offer = Offer::find($id);
         $comments = Offer::find($id)->comments;
-        return $comments;
+        return view ("comment.list")->with('comments', $comments)->with('offer', $offer);
     }
 }

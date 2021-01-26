@@ -35,21 +35,21 @@
                     <div>
                         <table style="float: left; width: 70%">
                             <tr><td style="text-align:left"><h4>{{$offer["name"]}}</h4></td></tr>
-                            <tr><td style="text-align:left"><strong>Localization: </strong>{{$offer["localization"]}}</td></tr>
+                      <tr><td style="text-align:left"><strong>Localization: </strong>{{$offer["localization"]}}</td></tr>
                             <tr><td style="text-align:left"><strong>Description: </strong></td></tr>
                             <tr><td style="text-align:left">{{$offer["description"]}}</td></tr>
                             <tr><td style="text-align:left"><strong>Users comments: </strong></td></tr> 
                             <?php $comments = $offer["comments"];
                                 foreach($comments as $comment){
-                                print $comment;
                                 $commentNew = explode(",", $comment);
                                 $commentNewer = str_replace("\"message\":\"","",$commentNew[6]);
                                 $commentFinal = str_replace("\"}", "",$commentNewer);
                                 $user = str_replace("\"name\":\"","", $commentNew[5]);
                                 $userFinal = str_replace("\"", "",$user);
                                 $date = str_replace("\"created_at\":\"","", $commentNew[1]);
-                                $dateFinal = str_replace("\"", "",$date);
-                                print "<tr><td td style='text-align:left'>".$commentFinal. " ".$userFinal. " " .$dateFinal."</td></tr>";}
+                                $dateNew = str_replace("\"", "",$date);
+                                $dateFinal = substr($dateNew, 0, -17);
+                                print "<tr><td td style='text-align:left; border: solid #F3F9FD'><strong>".$userFinal. ":</strong> ".$commentFinal. "<br />" .$dateFinal."</td></tr>";}
                             ?>
                             <tr><td style="text-align:left"><a href="/offers/{{$offer["id"]}}/comments" class="btn btn-dark buttonCreate btnMang">All comments</a>
                             <a href="/offers/{{$offer["id"]}}/comments/create" class="btn btn-dark buttonCreate btnMang">Add comment</a></td></tr>
