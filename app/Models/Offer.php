@@ -11,7 +11,10 @@ class Offer extends Model
     
     protected $fillable = [
         'name',
-        'description'
+        'localization',
+        'description',
+        'coverImage',
+        'images',
     ];
     
 
@@ -23,5 +26,7 @@ class Offer extends Model
         return $this->hasMany(Comment::class);
     }
 
-    
+    public function photo(){
+        return $this->hasMany(Photo::class);
+    }
 }

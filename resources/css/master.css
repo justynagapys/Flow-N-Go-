@@ -1,0 +1,36 @@
+.navbar-custom {
+width: 100%;
+background-color: #F3F9FD;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #051923;
+}
+a {
+    color: #051923;
+}
+body {
+    color: #051923
+}
+.navbar-toggle {
+    /* (80px - button height 34px) / 2 = 23px */
+    margin-top: 23px;
+    padding: 9px 10px !important;
+}
+tr{
+    border: 3px solid;
+    border-color: #003554;
+}
+table{
+    border-collapse: separate;
+    border-spacing:100px 30px;
+}
+.buttonCreate{
+    background-color: #003554;
+}
+body,th{
+    color:  #003554;
+}
+.card-header{
+    background-color: #F3F9FD;
+}

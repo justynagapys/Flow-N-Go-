@@ -28,7 +28,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view('comment.create');
+        return view('comment.create'); 
     }
 
     /**
@@ -40,9 +40,11 @@ class CommentController extends Controller
     public function store(Request $request, $o_id)
     {
         $validated = $request->validate([
+            'name'=>['required'],
             'message'=>['required']
         ]);
         $comment = New Comment;
+        $comment->name = $request->input('name');
         $comment->message = $request->input('message');
         $comment->user_id = auth()->user()->id;
         $comment->offer_id = $o_id;
@@ -64,7 +66,7 @@ class CommentController extends Controller
             return view('comment.edit');
         }
         else{
-            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+            return view('errors.permissionError');
         }
     }
 
@@ -86,7 +88,7 @@ class CommentController extends Controller
             return redirect('offers/'.$comment->offer_id.'/comments');
         }
         else{
-            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+            return view('errors.permissionError');
         }
     }
 
@@ -104,7 +106,7 @@ class CommentController extends Controller
             return redirect('offers/'.$comment->offer_id.'/comments');
         }
         else{
-            return redirect('https://www.youtube.com/watch?v=73T5NVNb7lE');
+            return view('errors.permissionError');
         }
     }
 }
