@@ -21,7 +21,7 @@
         color: #051923;
     }
     a {
-        color: #051923;'
+        color: #051923;
     }
     body {
         color: #051923;
@@ -67,6 +67,10 @@
         width: 70px;
         height: 70px;
         border-radius: 50%;
+    }
+    .search{
+        margin-top: 15px;
+        margin-right: 10px;
     }
     </style>
 </head>

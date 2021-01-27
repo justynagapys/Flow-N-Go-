@@ -18,9 +18,12 @@ class OfferController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+   
     public function index()
     {
         $offers = Offer::all();
+        
         return view('offer.index')->with('offers', $offers);
     }
 
@@ -120,10 +123,10 @@ class OfferController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
-            'name' => ['required', 'max:255'],
-            'description' => ['required']
-        ]);
+        // $validated = $request->validate([
+        //     'name' => ['required', 'max:255'],
+        //     'description' => ['required']
+        // ]);
         $offer = Offer::find($id);
         if($offer->user_id == auth()->user()->id){
         $offer->update($request->all());
@@ -156,4 +159,8 @@ class OfferController extends Controller
         $comments = Offer::find($id)->comments;
         return view ("comment.list")->with('comments', $comments)->with('offer', $offer);
     }
+
+    
+
+    
 }
