@@ -16,19 +16,19 @@
               <div class="form-group">
                 <label for="text" class="col-sm-5 control-label">Name</label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" name="name" placeholder="Enter the offer name" value={{$offer["name"]}}>
+                  <input type="text" class="form-control" name="name" placeholder="Enter the offer name" value="{{$offer["name"]}}">
                 </div>
               </div>
               <div class="form-group">
                 <label for="text" class="col-sm-7 control-label">Localization</label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" name="localization" placeholder="Enter the place localization" value={{$offer["localization"]}}>
+                  <input type="text" class="form-control" name="localization" placeholder="Enter the place localization" value="{{$offer["localization"]}}">
                 </div>
               </div>
               <div class="form-group">
                 <label for="text" class="col-sm-7 control-label">Description</label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" name="description" placeholder="Enter the offer description" value={{$offer["description"]}}>
+                  <input type="text" class="form-control" name="description" placeholder="Enter the offer description" value="{{$offer["description"]}}">
                 </div>
               </div>
               <div class="form-group">

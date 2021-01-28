@@ -49,7 +49,7 @@ class CommentController extends Controller
         $comment->user_id = auth()->user()->id;
         $comment->offer_id = $o_id;
         $comment->save();
-        return redirect('offers/'.$comment->offer_id.'/comments');
+        return redirect('offers/'.$comment->offer_id.'/');
     }
 
     

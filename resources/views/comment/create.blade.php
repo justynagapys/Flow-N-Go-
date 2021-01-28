@@ -19,7 +19,7 @@
         <div class="form-group">
             <label for="text" class="col-sm-9 control-label">Name</label>
             <div class="col-sm-12">
-              <input type="text" class="form-control" name="name" placeholder="Enter your name" value={{auth()->user()->name}}>
+              <input type="text" class="form-control" name="name" placeholder="Enter your name" value={{auth()->user()->name}} readonly="readonly">
             </div>
         </div>
         <div class="form-group">
