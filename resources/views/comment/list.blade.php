@@ -25,12 +25,7 @@
                                 $date = str_replace("\"created_at\":\"","", $commentNew[1]);
                                 $dateNew = str_replace("\"", "",$date);
                                 $dateFinal = substr($dateNew, 0, -17);
-                                if($comment["user_id"]==auth()->user()->id){
-                                    print "<tr><td td style='text-align:left; border: solid #F3F9FD'><strong>".$userFinal. ":</strong> ".wordwrap($commentFinal, 100, "<br />\n")."<br />" .$dateFinal. "</td><td><a href='/offers/{{$offer["id"]}}/comments/{{$comment["id"]}}/delete' class='btn btn-dark buttonCreate btnMang'>Delete</a></td></tr>";}
-                                 else{
-                                    print "<tr><td td style='text-align:left; border: solid #F3F9FD'><strong>".$userFinal. ":</strong> ".wordwrap($commentFinal, 100, "<br />\n"). "<br />" .$dateFinal."</td></tr>";}                                    
-                                }
-                        
+                                print "<tr><td td style='text-align:left; border: solid #F3F9FD'><strong>".$userFinal. ":</strong> ".wordwrap($commentFinal, 100, "<br />\n"). "<br />" .$dateFinal."</td></tr>";}                                    
                             ?>
                             <tr><td style="text-align:left"><a href="/offers/{{$offer["id"]}}/comments/create" class="btn btn-dark buttonCreate btnMang">Add comment</a></td></tr>                    
                         </table>

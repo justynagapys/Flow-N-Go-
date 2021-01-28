@@ -51,8 +51,8 @@
                                 $dateFinal = substr($dateNew, 0, -17);
                                 print "<tr><td td style='text-align:left; border: solid #F3F9FD'><strong>".$userFinal. ":</strong> ".$commentFinal. "<br />" .$dateFinal."</td></tr>";}
                             ?>
-                            <tr><td style="text-align:left"><a href="/offers/{{$offer["id"]}}/comments" class="btn btn-dark buttonCreate btnMang">All comments</a>
-                            <a href="/offers/{{$offer["id"]}}/comments/create" class="btn btn-dark buttonCreate btnMang">Add comment</a></td></tr>
+                            <tr><td style="text-align:left"><a href="/offers/{{$offer["id"]}}/comments" class="btn btn-dark buttonCreate ">All comments</a>
+                            <a href="/offers/{{$offer["id"]}}/comments/create" class="btn btn-dark buttonCreate ">Add comment</a></td></tr>
                         </table>
                         <table class="author" style="float:right; width: 30%">
                             <tr><td><h5>Author: </h5></td></tr>

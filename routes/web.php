@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use Request;
+use App\Models\Offer;
 
 
 /*
@@ -40,6 +42,19 @@ Route::get('/offers/{o_id}/comments/create', [\App\Http\Controllers\CommentContr
 
 Route::post('/offers/{o_id}/comments/create', [\App\Http\Controllers\CommentController::class, 'store']);
 
-Route::get('/offers/{o_id}/comments/{id}/delete', [\App\Http\Controllers\CommentController::class, 'destroy']);
+Route::get('comments/{id}/edit',[\App\Http\Controllers\CommentController::class, 'edit']);
+
+Route::patch('comments/{id}/edit',[\App\Http\Controllers\CommentController::class, 'update']);
+
+Route::get('comments/{id}/delete', [\App\Http\Controllers\CommentController::class, 'destroy']);
 
 Route::get('/home/myoffers', [\App\Http\Controllers\HomeController::class, 'userOffers']);
+
+Route::any('/search',function(){ 
+    $q = Request::get('localization');
+    $offer = Offer::where('localization', 'like', '%'.$q.'%') -> get();
+    return view('offer.search')->with('offer', $offer)->with('q',$q);
+}
+);
+
+// Route::any('/search', [\App\Http\Controllers\OfferController::class, 'search']);
